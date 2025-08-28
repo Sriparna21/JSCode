@@ -1,0 +1,107 @@
+ // Creates singleton: Object.create
+
+// Object Literals
+const JsUser = {
+    name: "Srips",
+    age: 18,
+    email: "abd@gmail.com",
+    isLoggedIn: false,
+    lastLoginDays: ["Monday","Friday"]
+}
+
+// console.log(JsUser.email)
+// console.log(JsUser["name"])
+
+const mySym = Symbol ("key1")
+
+
+const JsUser1 = {
+    name: "Srips",
+    age: 18,
+    [mySym]: "mykey",
+    email: "abd@gmail.com",
+    isLoggedIn: false,
+    lastLoginDays: ["Monday","Friday"]
+}
+
+// console.log(JsUser1[mySym])
+// console.log(typeof JsUser1[mySym]) // Typeof func[key] gives the value of the element stored in the symbol which is string in this case
+
+// To change the values
+JsUser1.email = "srips@google.com"
+
+
+// console.log(JsUser1.email)
+
+
+// Freeze objects so that no one can change the value
+Object.freeze (JsUser1) // freezes the entire object
+
+JsUser1.email = "srips1234@google.com"
+
+// console.log(JsUser1)
+
+
+JsUser.greeting = function () {
+    console.log ("Hola User")
+}
+
+// console.log(JsUser.greeting())
+
+
+
+JsUser.greeting1 = function () {
+    console.log (`Hola User, ${this.name}`)
+}
+
+// console.log(JsUser.greeting1())
+
+
+// const tinderUser = new Object() // Singleton object
+const tinderUser = {} // Non singleton object
+
+tinderUser.id = "Tarun678"
+tinderUser.name = "Tarun"
+tinderUser.isLoggedIn = false
+
+
+
+// console.log(tinderUser)
+
+
+const regUser = {
+    email: "someone@gmail.com",
+    fullname: {
+        userfullname: {
+            firstname: "Sriparna",
+            lastname: "Ghosh"
+        }
+    }
+}
+
+// console.log(regUser.fullname?.userfullname.firstname)
+
+
+const obj1 = {1: "a", 2: "b"}
+const obj2 = {3: "a", 4: "b"}
+
+// const obj3 = Object.assign(obj1, obj2)
+// console.log(obj3)
+
+// const obj3 = Object.assign({}, obj1, obj2)
+// console.log(obj3)
+
+const obj3 = {...obj1,...obj2} // Most used way
+// console.log(obj3)
+
+// Destructuring
+
+const course = {
+    coursename: "Learn JS",
+    price: 999,
+    instructor: "Srips"
+}
+
+const {instructor: ins} = course
+// console.log(ins)
+
